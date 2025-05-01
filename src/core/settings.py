@@ -16,10 +16,12 @@ from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-BASE_URL = config('BASE_URL', cast=str, default='http://127.0.0.1:8000/')
-GOOGLE_AUTH_CALLBACK_PATH = '/google/callback/'
-GOOGLE_CLIENT_ID = config('GOOGLE_CLIENT_ID', cast=str, default='')
-GOOGLE_CLIENT_SECRET  = config('GOOGLE_SECRET_KEY', cast=str, default='')
+BASE_URL = config('BASE_URL', cast=str, default="http://127.0.0.1:8000/")
+# GOOGLE_AUTH_CALLBACK_PATH = "/google/callback/"
+
+# pip install django-googler
+GOOGLE_CLIENT_ID= config('GOOGLE_CLIENT_ID', cast=str, default="")
+GOOGLE_SECRET_KEY= config('GOOGLE_SECRET_KEY', cast=str, default="")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
@@ -62,7 +64,7 @@ ROOT_URLCONF = 'core.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

@@ -1,7 +1,10 @@
 from django.urls import path
-from . import views
+
+from googler import views
+
+app_name = 'googler'
 
 urlpatterns = [
-    path('google/login/', views.google_login_redirect_view, name='google_login_redirect'),
-    path('google/callback/', views.google_login_callback_view, name='google_login_callback'),
+    path('login/', views.google_login_view, name='login'),
+    path('callback/', views.google_login_callback_view, name='callback'),
 ]
